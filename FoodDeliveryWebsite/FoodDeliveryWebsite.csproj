@@ -15,5 +15,9 @@
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
   </ItemGroup>
+	
+  <Target Name="RunNPM" BeforeTargets="Build">
+    <Exec Command="npm run watch" />
+  </Target>
 
 </Project>
