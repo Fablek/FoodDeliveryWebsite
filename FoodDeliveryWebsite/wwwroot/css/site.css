@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
+body {
+    font-family: "Poppins", sans-serif;
+}
+
 @theme {
     /* Sizes */
     --container-width: 1528px;
     /* Colors */
     --gray-color: #FAFAFA;
     --green-color: #028643;
+    --white-30: rgba(255, 255, 255, 0.3);
+    --black-10: rgba(0, 0, 0, 0.1);
+    --orange: #FC8A06;
 }

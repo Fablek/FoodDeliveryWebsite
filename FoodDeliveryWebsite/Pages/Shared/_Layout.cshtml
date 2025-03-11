@@ -7,13 +7,17 @@
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/css/style.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="max-w-(--container-width) mx-auto">
-        <div class="flex justify-between items-center bg-(--gray-color)">
-            <div class="flex items-center gap-[12px]">
+        <div class="flex justify-between items-center bg-(--gray-color) border-r border-b border-l border-(--black-10) rounded-b-2xl">
+            <div class="flex items-center gap-[12px] pl-[30px]">
                 <span>🌟</span>
-                <span>Get 5% Off your first order, <span>Promo: ORDER5</span></span>
+                <span class="font-medium text-[15px]">Get 5% Off your first order, <span class="font-semibold text-(--orange) underline decoration-1">Promo: ORDER5</span></span>
             </div>
             <div class="flex items-center gap-[70px]">
                 <div class="flex items-center gap-[14px]">
@@ -26,30 +30,34 @@
                             <image id="image0_33_51" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFf0lEQVR4nO2dTWhcVRSAj/fkzTnTTJO0NobozDmTH0iKvxDQlX+IP0VQq6gVxI1Vd+JGqIJSBKm6Mm6KXbgoYv1BRHBjraAiSLVWXai1GtEa04K2FJSmVsjIfZOsEpNJZu7Pm3kfHBhCkjn347z77tx73x2AnJycnJycnJzOhUcqhvU+JH0GSd8wJF8h6xSSnkKWf9JIX+uUITmMJK/b3zWs2+zfhk4/ZhCpehOy7kHWH5G11mTY//EyUuVGADChGxceHhYkfR5Jp1sgd+mw/5v0Ofte0HGQDCPrJLKcdSZ4Ucg5JN0LBR2H9meg21YXsv7rT/CisO89CTDaA+0IFuUuJP09oODFXUpRt0L7MEr1biICuUsL3wtQLkKm4arOD81qMYcdImZ3WFjQzUhyLLREbLyyZ5Jk6DLIEl3F6lVIejK4PF617JNdxaErIQskSeXiTErmhZDT8Vd28aIykvwaXpY2W9nT9v4CcTJK6bxDaEncmjAs3wAoQ2wgy+7QcrD18RJE92EkvJSakyhUb4c4GFvvdFKIAwfpbwD9pdCWAVlfDC6Dnct+IazlQnUs8ARRzU/IOaDKSDDPyPJKeAnqK/aEscwjlfqyUnABNW9VHWJsna6MBG+8+g2SXb49G3s37jzROm1rzJvl+YXU8A3nIFV9gz/R9dXqWmeG7PYp+iefjTMs7xuS7XY4adcd0yjouCF5yLDu9yz6B39bBPw16kgXV65eKaUurl5jBfjKy85SOvec7iDyUcUkHwFoX8OJ9coGQ/Kxl9y4ei+4Jt2m5aGSYTWSF+iVDchy1Hl+pDvBNXYvnIeGXLfW/OrdiOv85DVwjevJfcO6v+kcWQ84zZH0ELgGSX5x2wh5sNkcDcnDjqv6Z3ANkv7pshGQDuGapKDjTkWT/gGucT2RBC2ZZO8vua1oOQuuQZbZ+EWP9rgVrWfANUhyIgNdx2anokmOg2vsGNdlI4z9qN0khqqPuK1o+a41NpdthBx0Kpr1g6ZzZP3QcTF8Bq5Bkn1uq0XtXf36tebXxdVrPeT3KrjGsO5w3hDWKSgNblp1cj3ljS162GiFq04eB9dgQbd4EF2zE0R27qLhxHrKGw3pJz5yQ6reDM7pHhpA1jkvDWI52si8h+1qfFTyfMxB9/AF7kWnN0Q95KlRtfqlqgfsx2o7bKuPs/tL9rX9mesb36JcSD/3IjkVzfKUz8ZhRGFYn/AmOknKl4ZuMAaK+lXlEXsJdVw1k37hVXIqmuX+jhPNus27aICJpKM20ZDdPDORBBANYIr6WMdUc0EehXBMJD6X+TFYyPfBqnkBLFRuCy9C3UZBt0AMGJJ3gstgN2FI34JoKA1uspPhoaVgq4N0BtZfeD7EBBbkVn9zIOoj5pD0FogRP7uY1EsYlqchYs7zspOJHUsmedu2BeJmoNsu9WRXsn4KMLgOssFwr++pVGyFZJavV7XYEAWl0X774HqmJJfWsHwWB9pnL0WMvruQg9EN41bPQLdhfS/eStZ3M9QnrwjOn3dXiywmvT7O5gvDlQeQ9e8IBP9l59OhrSlUx+yNJ6Dkb5OkfAl0BspBDh1MDxNsn/64YbCoW13vTq0LluNY1Dugs9G+9Kxnd1X8ZobHx63HcOWe+VPOWyX4FBbl7tDtivfIeWr+qS9D+mV2zxr1uYjAzTyUKUfyrqJBknV6xdpOS5fZJKle3uj75EC64X3XGkYXz+by1nae3swqJJ9o2+PkXWNItvt8yKiT6Wpo21nI7VrtgmF9csVqZt0ROs92Ge7NLiP6TBtM2scBLreyTrIvdH5tAxb1zv8V3V7fpRKactGevb/EB5TT2f8OlchA0p1Z202UVYwVm363C8kx+2RY/hV6OTk50N78B1F1P3cr8q2uAAAAAElFTkSuQmCC" />
                         </defs>
                     </svg>
-                    <span>Regent Street, A4, A4201, London</span>
-                    <span>Change Location</span>
+                    <span class="font-medium text-[15px]">Regent Street, A4, A4201, London</span>
+                    <span class="font-medium text-[15px] text-(--orange) underline decoration-1">Change Location</span>
                 </div>
-                <div class="flex items-center bg-(--green-color)">
-                    <svg class="" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <rect width="43" height="43" fill="url(#pattern0_33_259)" />
-                        <defs>
-                            <pattern id="pattern0_33_259" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                <use xlink:href="#image0_33_259" transform="scale(0.0111111)" />
-                            </pattern>
-                            <image id="image0_33_259" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
-                        </defs>
-                    </svg>
-                    <span class="">23 Items</span>
-                    <span class="">GBP 79.89</span>
-                    <svg class="" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <rect x="38" width="38" height="38" transform="rotate(90 38 0)" fill="url(#pattern0_33_265)" />
-                        <defs>
-                            <pattern id="pattern0_33_265" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                <use xlink:href="#image0_33_265" transform="scale(0.0111111)" />
-                            </pattern>
-                            <image id="image0_33_265" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD50lEQVR4nO2dSWsVQRDHG4xGUfRoYgSV6BeIelIxiAseRD2oYBSM2yWBGEN88ebN5RQCfg3XQ0Q/gCKRmOTiRb0Yt6yefA8Sf1KkxRyyaXp6ambqB3N5zJtX/adfd1d1dY1zhmEYhmEYhmEYxtIAVgC7gUvAPeARMAi8B8aBir/G/WeD/p67/ju75BlL/LliAWwGrgFPgR8sn0ngCdAG1LkiA6wBzgMvgGmSYwp4DpwDVruiAKzzPW2Y+HwHbgEbXF4BVgKdwBjpIzZ0iE0uTwD7gCH08Q446LKOjInAfeAXehHbeoBql0WArcArssMbYLvLEvJ3DLRMi40sCw+4LACcBH6SXSrAGacZ4GrCa+JYSBuuOI0AJ7xzkBemgdNOEzKuAWXyRwU47DQA7MjoxPcvE2R92iJX+2VR3ulLdZ3tnZGi0JOmW63Z4wuNtHV/bJGrgAGKx1DUQJSPwhWV9pjx5FGKy6hoEEPoUtotVUBHjO2nr0ociRJQ469SZIfpc6LbYn6PTwOlOWw7GlnspiSFlo1UDdTMY9+RiJHD3qRErlMUNKpZwM5YYk8nksrg8y600LWIrbGGkdYkhJbkFi2URUwFYj9MIk1rAl1UgGOL2J30MDIRNP3M58JppKygZ+8MKfRl9FJJuWc3hxRasjo1U0lR7NshhX6Mfiopif0gpNBZCYmWUxiz+0MK/TFgr+sEaoMZ93/tCSn2h5CGhQqL3nBKEKcnUJtGQholPTEEtU4JwMZAbSprFHqTU4LYolHo0aTCm2kB3NQ4dIScDEtp92zNk6Et7yIt78xhieSwmAseyQWXE6laqaQcVLoQUmgLk85PQ0ihLfAfI/DvxZaz1VooKwj4h50IZxkux4q1UFIgstCSlMtq6QZ/mVoo7WG5YkuVAA3U5DaBxjdESjGozOsgfkrY2aSTHL+gY+3cJWFXf3VFFnk48dofBU9C/8P1REX2Qq+V0CDFZTRKIroXW4qKFJW2KCLPOiz0luIxFL1qDbDXjr9FwlduKQrdsXSd74iyHN/NO6+BVakJ7cWu9wfT88oEsM1pAGjMeNWZhRyjQ04TwHFFQadQZ1ROOY1IeZyclPqZkpxwpxlf8ifLw0hZXYmfRUr/TGZ04mt0WQLYArwkO/SlXtJnmevsHuUepNjWnfo6OaC7PoA+xKY9Lk8wE4hqVxJiHfGbzVUurzATz5ZGfkpB4G++UPd6VxSYKXncBDxL2NGRZ/fKHl+hSs/Phd/3a5Wz1f5tFMtl3D+rJbGUgKzDTPpZA3ARuCPZQJKD7F8FMjbr9SBj/rN+f4/c2+y/a68HMQzDMAzDMAzDcEvkN6dJSbMs1VD2AAAAAElFTkSuQmCC" />
-                        </defs>
-                    </svg>
+                <div class="flex items-center bg-(--green-color) rounded-b-2xl">
+                    <span class="px-[21px] py-[13px] border-r border-(--white-30)">
+                        <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="43" height="43" fill="url(#pattern0_33_259)" />
+                            <defs>
+                                <pattern id="pattern0_33_259" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_33_259" transform="scale(0.0111111)" />
+                                </pattern>
+                                <image id="image0_33_259" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF4klEQVR4nO2dS4wVRRSGSyEKLgxGBGeMcQGaKCo+AhhQAhjwgS504cJoNLowJsgG5KH4jBFdoKhRCLoxrtRgIL6DC0WNMS5QJLr0hSQKI8bXgAx+5nhrEjPprqququ6u7ttfMslk0qfuqf/2dJ1TdapaqUQAjgGuAV4CvgMO659vgReBq+Wauv1sNMC5wMfY+QiYUbe/jQRYAPyKO3Ltgrr9bhTAbOAPivMXMK9u/xsBcCbwE/4cAM6uux9JAwzqQS6UH4DT6+5PkgCTgN0G8Q4BK4BT9c9K/bc8pK1JdfcrKYDjgB0G0UaA6zLslgJHDHYfABPq6VViAMcCrxrE+ge43WB/s74mj+3AONXvAE9hZp1DG/dZ2tis+hkiChTjC2slsf/lCXwEtZKyBjE8B9V+zfr2ACcFtH8isMuSPV6q+iDr+7nsRINe4vNNX2aPDlnfgZidB6ZbUvn2ZY+O/87zmvaYSgo9QL1X1wBFP2SPqYRcwE2tzh4dkoh7K/RlXSuzR4esb1MNPm1sVfaY6kQPvUfZK63IHvWKtWnweb/OwQe37PF6lTIO4dSXKYRTpJQ96m/+cWCfwaGOHj8Cj4lmPkKLYUcx1vsI3d3JxdnnI3SHB53QFdEJXRGd0BXRCV0RndAJCy1BeEcx9voIvb7gh3TAo74puIjd3dl29orIXil4hvBDhCN7T1bphdpBYLX+W8q2JoaChc0QemcEx1ZntLsmcVsTO8sQenMExwYy2h1I3LbaVSJgeahXhraTtbWwLIa2Y526PNSrusRSAbYWFsbQdqxTsp0hiLrEUgG2FqbE0DbLMSnb8qYusZS77VHgU+BZ4A7gMmAacApwPDBRRy0zSl3qCo08KhKrqK2I+xZwa2l3aFFklCUAQ7t12T4NnKVSA7jLpWMVi2VFNQ1gkb1bxTtMTbbJEhp5GNqtxTZpQiIPQ5tl2o54TKbN1XMj23ShzffAn7q9X/SuXCktu0eiD2B8UR1dHJF6Yi8MbZZl+zdwg2O/ztHVrwcpjoj/HHCBr65RIw9PsXxtnWroJOrQ4V0MpEjyDWBmiMajji3z9cJDrBDb5ZZ+SALyiGXjvi9S5PlEUDFnSORRodBbLH2QmbtPKJ8vZCear9BTExf6a+AEw/Wz9IpIVewHLvEVW4x9GMxo67SItpJOz7IchlXknKZY/AbMqTLyWJPR1tqIti8YfB7Ux7nVhSwFTisqtIQyPhzWS0iD+m5cW3Ddz2Qrce5UQ2z8GfUjhfgTK4k8SmSjwd+HSYcNRYReSFqMAGfk+HqeTlxS4ahznB0SeZTEuwZfXyM93q4i8iiDW3J8nGnZhheLYeBuHZ8P6N9tiZBbug68STr/iifn+ChLUmUjO7gWZ3y2HBdn4nlXoW8kDXbl+Dc+8ERIF+SuXZrz+ZMttgedSsj0LlTvmbyIPGM4RLbsx8USgz5TopUryOZM4EPq5c4c32Q+uUyRr7BoY3t0CPc7Ca0bHAfcplfIf6d6FuX49XKJIl9p0WSxvs7GdtV06GVhLs/YlWPOOx2OILIMkC7sUU0Ht8mjFRl2S3LEli/lqogil1P2WzX0skUbk3Nsx4otcyrXRhb5v3ZV08Ftsiq3Mul/YpclsnBINR3cVutXOBx8tbQkkYX9qukAXzl0dDgrqyvwGSEit2Yw3Baa3ZUssrBVNR3godD5ipJFFh5QTYfic+ZOd3ZEkYX5qunQq9soWnVkvLMjizwUZV9iCgBbPATIvLMji1zLuX+lAVzsKcKwnpQanchf5Th34YosRlyo2gTwDunxumob9BZnTQceVs2RKEWQKYL9TNI0yw2aBjDBcnJjVewuVEDTROjVQQftkwxE3m0wXfUDwBzP9ySGIitPs1U/Qa9s1/TmjNhIYjJX9SP0HiOfVyDyrr55XOSh93U/WVLoJ21uaPxLGmKiy8ZibxY6P6qTbQK4SJ+yI1vZfJ7Dm1qXVqsS0UXr84EHdSWqvBRHwsLRF7/L71LKsFVfI9d6z8L9C+qzSCXLpAINAAAAAElFTkSuQmCC" />
+                            </defs>
+                        </svg>
+                    </span>
+                    <span class="py-[23px] px-[21px] border-r border-(--white-30) text-white font-semibold">23 Items</span>
+                    <span class="py-[23px] px-[21px] text-white font-semibold">GBP 79.89</span>
+                    <span class="pl-[10px] pr-[14px] py-[15px] border-l border-(--white-30) border-opacity-30">
+                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect x="38" width="38" height="38" transform="rotate(90 38 0)" fill="url(#pattern0_33_265)" />
+                            <defs>
+                                <pattern id="pattern0_33_265" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_33_265" transform="scale(0.0111111)" />
+                                </pattern>
+                                <image id="image0_33_265" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD50lEQVR4nO2dSWsVQRDHG4xGUfRoYgSV6BeIelIxiAseRD2oYBSM2yWBGEN88ebN5RQCfg3XQ0Q/gCKRmOTiRb0Yt6yefA8Sf1KkxRyyaXp6ambqB3N5zJtX/adfd1d1dY1zhmEYhmEYhmEYxtIAVgC7gUvAPeARMAi8B8aBir/G/WeD/p67/ju75BlL/LliAWwGrgFPgR8sn0ngCdAG1LkiA6wBzgMvgGmSYwp4DpwDVruiAKzzPW2Y+HwHbgEbXF4BVgKdwBjpIzZ0iE0uTwD7gCH08Q446LKOjInAfeAXehHbeoBql0WArcArssMbYLvLEvJ3DLRMi40sCw+4LACcBH6SXSrAGacZ4GrCa+JYSBuuOI0AJ7xzkBemgdNOEzKuAWXyRwU47DQA7MjoxPcvE2R92iJX+2VR3ulLdZ3tnZGi0JOmW63Z4wuNtHV/bJGrgAGKx1DUQJSPwhWV9pjx5FGKy6hoEEPoUtotVUBHjO2nr0ociRJQ469SZIfpc6LbYn6PTwOlOWw7GlnspiSFlo1UDdTMY9+RiJHD3qRErlMUNKpZwM5YYk8nksrg8y600LWIrbGGkdYkhJbkFi2URUwFYj9MIk1rAl1UgGOL2J30MDIRNP3M58JppKygZ+8MKfRl9FJJuWc3hxRasjo1U0lR7NshhX6Mfiopif0gpNBZCYmWUxiz+0MK/TFgr+sEaoMZ93/tCSn2h5CGhQqL3nBKEKcnUJtGQholPTEEtU4JwMZAbSprFHqTU4LYolHo0aTCm2kB3NQ4dIScDEtp92zNk6Et7yIt78xhieSwmAseyQWXE6laqaQcVLoQUmgLk85PQ0ihLfAfI/DvxZaz1VooKwj4h50IZxkux4q1UFIgstCSlMtq6QZ/mVoo7WG5YkuVAA3U5DaBxjdESjGozOsgfkrY2aSTHL+gY+3cJWFXf3VFFnk48dofBU9C/8P1REX2Qq+V0CDFZTRKIroXW4qKFJW2KCLPOiz0luIxFL1qDbDXjr9FwlduKQrdsXSd74iyHN/NO6+BVakJ7cWu9wfT88oEsM1pAGjMeNWZhRyjQ04TwHFFQadQZ1ROOY1IeZyclPqZkpxwpxlf8ifLw0hZXYmfRUr/TGZ04mt0WQLYArwkO/SlXtJnmevsHuUepNjWnfo6OaC7PoA+xKY9Lk8wE4hqVxJiHfGbzVUurzATz5ZGfkpB4G++UPd6VxSYKXncBDxL2NGRZ/fKHl+hSs/Phd/3a5Wz1f5tFMtl3D+rJbGUgKzDTPpZA3ARuCPZQJKD7F8FMjbr9SBj/rN+f4/c2+y/a68HMQzDMAzDMAzDcEvkN6dJSbMs1VD2AAAAAElFTkSuQmCC" />
+                            </defs>
+                        </svg>
+                    </span>
                 </div>
             </div>
         </div>
