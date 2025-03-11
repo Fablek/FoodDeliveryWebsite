@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+    /* Sizes */
+    --container-width: 1528px;
+    /* Colors */
+    --gray-color: #FAFAFA;
+    --green-color: #028643;
+}
