@@ -1,16 +1,25 @@
 @import "tailwindcss";
 
-body {
-    font-family: "Poppins", sans-serif;
-}
-
 @theme {
     /* Sizes */
     --container-width: 1528px;
     /* Colors */
+    --white-30: rgba(255, 255, 255, 0.3);
     --gray-color: #FAFAFA;
     --green-color: #028643;
-    --white-30: rgba(255, 255, 255, 0.3);
     --black-10: rgba(0, 0, 0, 0.1);
     --orange: #FC8A06;
+    --dark: #03081F;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.nav-item {
+    @apply text-black no-underline text-base font-medium rounded-[120px] px-[34px] py-[9px] transition-colors transition-[bg] duration-200 ease-in-out hover:text-white hover:bg-(--orange);
+}
+
+.nav-item-active {
+    @apply text-white bg-(--orange);
 }
