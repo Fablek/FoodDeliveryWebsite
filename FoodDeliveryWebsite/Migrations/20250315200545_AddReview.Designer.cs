@@ -4,6 +4,7 @@ using FoodDeliveryWebsite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodDeliveryWebsite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250315200545_AddReview")]
+    partial class AddReview
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,33 +118,6 @@ namespace FoodDeliveryWebsite.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Restaurants");
-                });
-
-            modelBuilder.Entity("FoodDeliveryWebsite.Models.RestaurantHours", b =>
-                {
-                    b.Property<int>("HoursId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("HoursId"));
-
-                    b.Property<TimeSpan>("CloseTime")
-                        .HasColumnType("time(6)");
-
-                    b.Property<int>("DayOfWeek")
-                        .HasColumnType("int");
-
-                    b.Property<TimeSpan>("OpenTime")
-                        .HasColumnType("time(6)");
-
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("int");
-
-                    b.HasKey("HoursId");
-
-                    b.HasIndex("RestaurantId");
-
-                    b.ToTable("RestaurantHours");
                 });
 
             modelBuilder.Entity("FoodDeliveryWebsite.Models.Review", b =>
@@ -250,17 +226,6 @@ namespace FoodDeliveryWebsite.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("FoodDeliveryWebsite.Models.RestaurantHours", b =>
-                {
-                    b.HasOne("FoodDeliveryWebsite.Models.Restaurant", "Restaurant")
-                        .WithMany()
-                        .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Restaurant");
                 });
 
             modelBuilder.Entity("FoodDeliveryWebsite.Models.Review", b =>
