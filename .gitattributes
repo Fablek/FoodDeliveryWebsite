@@ -63,6 +63,4 @@
 #*.RTF   diff=astextplain
 
 *.html linguist-vendored
-*.cs linguist-detectable=true
-*.csproj linguist-detectable=true
-*.sln linguist-detectable=true
+*.html linguist-detectable=false
