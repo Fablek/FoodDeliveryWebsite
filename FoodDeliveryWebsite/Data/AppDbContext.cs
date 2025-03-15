@@ -12,5 +12,6 @@ namespace FoodDeliveryWebsite.Data
         public DbSet<User> Users { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
     }
 }
