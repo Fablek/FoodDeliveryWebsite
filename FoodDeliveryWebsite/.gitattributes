@@ -1,0 +1,24 @@
+Import System.Runtime.InteropServices
+
+' W projektach w stylu zestawu SDK, takich jak ten, kilka atrybutów zestawu, kiedyś
+' definiowanych w tym pliku, jest teraz automatycznie dodawanych podczas kompilacji
+' i wypełnianych wartościami zdefiniowanymi we właściwościach projektu. Aby uzyskać
+' szczegółowe informacje o tym, które atrybuty są dołączane i jak dostosować ten proces,
+' zobacz: https://aka.ms/assembly-info-properties
+
+
+' Ustawienie atrybutu ComVisible na wartość false sprawia, że typy w tym zestawie
+' nie są widoczne dla składników modelu COM. Jeśli chcesz uzyskać dostęp do typu w
+' tym zestawie z modelu COM, ustaw w tym typie atrybut ComVisible na wartość true.
+
+<Assembly: ComVisible(False)> 
+
+' Następujący identyfikator GUID jest identyfikatorem elementu typelib w przypadku
+' udostępnienia tego projektu w modelu COM.
+
+<Assembly: Guid("cc1caa9c-1f7b-418b-98ad-16478dbd8258")> 
+
+*.html linguist-detectable=false
+*.cs linguist-detectable=true
+*.csproj linguist-detectable=true
+*.sln linguist-detectable=true
