@@ -15,5 +15,6 @@ namespace FoodDeliveryWebsite.Data
         public DbSet<Favorite> Favorites { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<RestaurantHours> RestaurantHours { get; set; }
+        public DbSet<Promotion> Promotions { get; set; }
     }
 }
