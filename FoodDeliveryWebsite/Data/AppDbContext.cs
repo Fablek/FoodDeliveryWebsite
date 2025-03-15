@@ -20,5 +20,6 @@ namespace FoodDeliveryWebsite.Data
         public DbSet<Addon> Addons { get; set; }
         public DbSet<ProductAddon> ProductAddons { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }
