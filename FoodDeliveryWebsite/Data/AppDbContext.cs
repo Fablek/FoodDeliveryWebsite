@@ -18,5 +18,7 @@ namespace FoodDeliveryWebsite.Data
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Addon> Addons { get; set; }
+        public DbSet<ProductAddon> ProductAddons { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

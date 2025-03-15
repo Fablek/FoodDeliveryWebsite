@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDeliveryWebsite.Models
 {
@@ -13,5 +14,8 @@ namespace FoodDeliveryWebsite.Models
         [ForeignKey("AddonId")]
         public int AddonId{ get; set; }
         public Addon Addon { get; set; }
+
+        [Required]
+        public bool IsDefault { get; set; }
     }
 }
