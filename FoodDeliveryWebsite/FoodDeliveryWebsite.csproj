@@ -16,6 +16,10 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
   <Target Name="WatchTailwind" BeforeTargets="Run">
     <Exec Command="npm run watch" />
   </Target>
