@@ -1,9 +1,9 @@
 using FoodDeliveryWebsite.Data;
+using FoodDeliveryWebsite.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddRazorPages();
 
 var connectionString = builder.Configuration.GetConnectionString("MySqlConn");
 
@@ -12,24 +12,31 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login"; 
+        options.AccessDeniedPath = "/AccessDenied";
+    });
+
+builder.Services.AddAuthorization();
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<UserService>();
+
+builder.Services.AddRazorPages();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();
 app.UseRouting();
 
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+app.MapRazorPages();
 
 app.Run();

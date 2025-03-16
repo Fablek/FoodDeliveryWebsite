@@ -23,7 +23,7 @@ namespace FoodDeliveryWebsite.Models
 
     public enum UserRole
     {
-        Client,
-        Owner
+        Client = 0,
+        Owner = 1
     }
 }

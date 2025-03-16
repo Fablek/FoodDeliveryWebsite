@@ -1,0 +1,21 @@
+﻿@page
+@model FoodDeliveryWebsite.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<h2>Registration</h2>
+
+<form method="post">
+    <label>Email:</label>
+    <input type="email" asp-for="Email" required />
+
+    <label>Username:</label>
+    <input type="text" asp-for="Username" required />
+
+    <label>Password:</label>
+    <input type="password" asp-for="Password" required />
+
+    <button type="submit">Register</button>
+</form>
+<p>@Model.Message</p>
