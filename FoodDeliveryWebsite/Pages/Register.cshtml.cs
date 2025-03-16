@@ -24,6 +24,16 @@ namespace FoodDeliveryWebsite.Pages
 
         public string Message { get; set; }
 
+        public IActionResult OnGet()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return RedirectToPage("/Index");
+            }
+
+            return Page();
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (await _userService.RegisterUserAsync(Username, Email, Password))
