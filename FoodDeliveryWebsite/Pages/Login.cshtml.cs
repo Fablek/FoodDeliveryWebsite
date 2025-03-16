@@ -1,4 +1,4 @@
-using FoodDeliveryWebsite.Services;
+﻿using FoodDeliveryWebsite.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +21,9 @@ namespace FoodDeliveryWebsite.Pages
 
         [BindProperty]
         public string Password { get; set; }
+
+        [BindProperty]
+        public bool RememberMe { get; set; }
 
         public string Message { get; set; }
 
@@ -53,7 +56,13 @@ namespace FoodDeliveryWebsite.Pages
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
 
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = RememberMe, 
+                ExpiresUtc = RememberMe ? DateTime.UtcNow.AddDays(30) : DateTime.UtcNow.AddHours(1)
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
             return RedirectToPage("/Index");
         }
