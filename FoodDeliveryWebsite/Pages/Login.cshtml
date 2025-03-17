@@ -4,36 +4,36 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="max-w-(--container-width) mx-auto">
-    <div class="max-w-[415px]">
-        <h1 class="text-[34px] font-semibold text-(--dark)">WELCOME <span class="text-(--orange)">BACK</span></h1>
+<div class="max-w-(--container-width) mx-auto grid grid-cols-2 gap-6 py-[120px]">
+    <div class="px-[96px]">
+        <h1 class="text-[54px] font-semibold text-(--dark)">WELCOME <span class="text-(--orange)">BACK</span></h1>
         <span>Welcome back! Please enter your details.</span>
 
         <form method="post" class="flex flex-col mt-8">
-            <div class="flex flex-col">
-                <label for="email">Email:</label>
-                <input type="email" asp-for="Email" name="email" placeholder="Enter your email" required />
+            <div class="flex flex-col gap-[6px]">
+                <label for="email" class="text-sm font-medium">Email:</label>
+                <input type="email" asp-for="Email" name="email" placeholder="Enter your email" class="border border-(--black-40) px-[18px] py-[12px] text-sm" required />
             </div>
 
-            <div class="flex flex-col mt-[22px]">
-                <label for="password">Password:</label>
-                <input type="password" asp-for="Password" name="password" placeholder="********" required />
+            <div class="flex flex-col mt-[22px] gap-[6px]">
+                <label for="password" class="text-sm font-medium">Password:</label>
+                <input type="password" asp-for="Password" name="password" placeholder="********" class="border border-(--black-40) px-[18px] py-[12px] text-sm" required />
             </div>
 
-            <div class="flex justify-between">
-                <div>
+            <div class="flex justify-between items-center mt-[22px]">
+                <div class="flex items-center">
                     <input type="checkbox" asp-for="RememberMe" id="rememberMe" class="mr-2" />
-                    <label for="rememberMe">Remember me</label>
+                    <label for="rememberMe" class="text-sm font-medium">Remember me</label>
                 </div>
-                <a asp-area="" asp-page="/Forgot">Forgot password</a>
+                <a asp-area="" asp-page="/Forgot" class="text-sm font-medium">Forgot password</a>
             </div>
 
             <p>@Model.Message</p>
 
-            <button class="flex mt-[11px]" type="submit">Sign in</button>
+            <button class="mt-[11px] bg-(--orange) p-[12px] flex justify-center text-white text-sm font-medium cursor-pointer" type="submit">Sign in</button>
         </form>
 
-        <a href="" class="flex mt-[11px]">
+        <a href="" class="flex mt-[11px] border border-(--black-40) justify-center align-center py-[6px] items-center gap-[6px] p-[11px] text-sm font-medium">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect x="0.131157" y="0.16394" width="28.918" height="28.918" fill="url(#pattern0_2_44)" />
                 <defs>
@@ -46,13 +46,13 @@
             <span>Sign in with Google</span>
         </a>
 
-        <div class="mt-[15px]">
-            <span>Don’t have an account? <a asp-area="" asp-page="/Register">Sign up fo free!</a></span>
+        <div class="mt-[15px] text-center">
+            <span class="text-xs">Don’t have an account? <a asp-area="" asp-page="/Register" class="text-(--orange)">Sign up fo free!</a></span>
         </div>
     </div>
 
-    <div>
-        <img src="~/images/ghost.png" alt="girl ghost background" />
-        <img src="~/images/girl-pizza.png" alt="girl with pizza" />
+    <div class="relative bg-(--orange) rounded-[64px]">
+        <img src="~/images/ghost.png" alt="girl ghost background" class="absolute bottom-0 max-h-[95%] left-[15%]" />
+        <img src="~/images/girl-pizza.png" alt="girl with pizza" class="absolute bottom-0 max-h-[95%] left-[15%]" />
     </div>
 </div>
