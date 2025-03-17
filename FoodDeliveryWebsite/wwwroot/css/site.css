@@ -14,7 +14,8 @@
     --black-40: rgba(0, 0, 0, 0.4);
     --black-80: rgba(0, 0, 0, 0.8);
     --orange: #FC8A06;
-    --dark: #03081F;
+    --orange-darker: #e07a05;
+    --dark: #03081F; 
 }
 
 body {

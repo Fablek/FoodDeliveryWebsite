@@ -22,18 +22,18 @@
 
             <div class="flex justify-between items-center mt-[22px]">
                 <div class="flex items-center">
-                    <input type="checkbox" asp-for="RememberMe" id="rememberMe" class="mr-2" />
-                    <label for="rememberMe" class="text-sm font-medium">Remember me</label>
+                    <input type="checkbox" asp-for="RememberMe" id="rememberMe" class="mr-2 cursor-pointer" />
+                    <label for="rememberMe" class="text-sm font-medium cursor-pointer">Remember me</label>
                 </div>
                 <a asp-area="" asp-page="/Forgot" class="text-sm font-medium">Forgot password</a>
             </div>
 
-            <p>@Model.Message</p>
+            <p class="text-red-500 mt-[11px]">@Model.Message</p>
 
-            <button class="mt-[11px] bg-(--orange) p-[12px] flex justify-center text-white text-sm font-medium cursor-pointer" type="submit">Sign in</button>
+            <button class="mt-[11px] bg-(--orange) p-[12px] flex justify-center text-white text-sm font-medium cursor-pointer duration-300 ease-out hover:bg-(--orange-darker)" type="submit">Sign in</button>
         </form>
 
-        <a href="" class="flex mt-[11px] border border-(--black-40) justify-center align-center py-[6px] items-center gap-[6px] p-[11px] text-sm font-medium">
+        <a href="" class="flex mt-[11px] border border-(--black-40) justify-center align-center py-[6px] items-center gap-[6px] p-[11px] text-sm font-medium duration-300 ease-ou hover:bg-(--black-40) hover:border-transparent hover:text-white">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect x="0.131157" y="0.16394" width="28.918" height="28.918" fill="url(#pattern0_2_44)" />
                 <defs>
@@ -47,7 +47,7 @@
         </a>
 
         <div class="mt-[15px] text-center">
-            <span class="text-xs">Don’t have an account? <a asp-area="" asp-page="/Register" class="text-(--orange)">Sign up fo free!</a></span>
+            <span class="text-xs">Don’t have an account? <a asp-area="" asp-page="/Register" class="text-(--orange) hover:underline">Sign up fo free!</a></span>
         </div>
     </div>
 
