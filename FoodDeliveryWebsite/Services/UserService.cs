@@ -35,6 +35,27 @@ namespace FoodDeliveryWebsite.Services
             return true;
         }
 
+        public async Task<bool> RegisterOwnerAsync(string username, string email, string password)
+        {
+            if (await _context.Users.AnyAsync(u => u.Email == email))
+                return false;
+
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+            var user = new User
+            {
+                Username = username,
+                Email = email,
+                PasswordHash = hashedPassword,
+                Role = UserRole.Owner,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<User?> AuthenticateUserAsync(string email, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);

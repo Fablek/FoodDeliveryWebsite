@@ -1,0 +1,42 @@
+﻿@page
+@model FoodDeliveryWebsite.Pages.RegisterOwnerModel
+@{
+    ViewData["Title"] = "Register as a Restaurant Owner";
+}
+
+<div class="max-w-(--container-width) mx-auto grid grid-cols-2 gap-6 py-[120px]">
+    <div class="px-[96px]">
+        <h1 class="text-[54px] font-semibold text-(--dark)">PARTNER WITH <span class="text-(--orange)">US</span></h1>
+        <span>Create an account to get started!</span>
+
+        <form method="post" class="flex flex-col mt-8">
+            <div class="flex flex-col gap-[6px]">
+                <label for="email" class="text-sm font-medium">Email:</label>
+                <input type="email" asp-for="Email" placeholder="Enter your email" class="border border-(--black-40) px-[18px] py-[12px] text-sm" required />
+            </div>
+
+            <div class="flex flex-col mt-[22px] gap-[6px]">
+                <label for="Username" class="text-sm font-medium">Username:</label>
+                <input type="text" asp-for="Username" placeholder="Enter your username" class="border border-(--black-40) px-[18px] py-[12px] text-sm" required />
+            </div>
+
+            <div class="flex flex-col mt-[22px] gap-[6px]">
+                <label for="password" class="text-sm font-medium">Password:</label>
+                <input type="password" asp-for="Password" placeholder="********" class="border border-(--black-40) px-[18px] py-[12px] text-sm" required />
+            </div>
+
+            <p class="text-red-500 mt-[11px]">@Model.Message</p>
+
+            <button class="mt-[11px] bg-(--orange) p-[12px] flex justify-center text-white text-sm font-medium cursor-pointer duration-300 ease-out hover:bg-(--orange-darker)" type="submit">Register</button>
+        </form>
+
+        <div class="mt-[15px] text-center">
+            <span class="text-xs">Already have an account? <a asp-area="" asp-page="/Login" class="text-(--orange) hover:underline">Log in!</a></span>
+        </div>
+    </div>
+
+    <div class="relative bg-(--orange) rounded-[64px]">
+        <img src="~/images/ghost.png" alt="girl ghost background" class="absolute bottom-0 max-h-[95%] left-[15%]" />
+        <img src="~/images/girl-pizza.png" alt="girl with pizza" class="absolute bottom-0 max-h-[95%] left-[15%]" />
+    </div>
+</div>
