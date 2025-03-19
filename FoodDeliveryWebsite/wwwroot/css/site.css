@@ -6,6 +6,7 @@
     /* Colors */
     --white-30: rgba(255, 255, 255, 0.3);
     --gray-color: #FAFAFA;
+    --gray-bg-section-color: #D9D9D9;
     --light-gray: #FBFBFB;
     --dark-gray-color: rgba(217, 217, 217, 0.6);
     --green-color: #028643;
@@ -15,7 +16,7 @@
     --black-80: rgba(0, 0, 0, 0.8);
     --orange: #FC8A06;
     --orange-darker: #e07a05;
-    --dark: #03081F; 
+    --dark: #03081F;
 }
 
 body {
