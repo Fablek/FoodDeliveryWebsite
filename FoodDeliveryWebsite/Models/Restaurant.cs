@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDeliveryWebsite.Models
@@ -10,6 +12,9 @@ namespace FoodDeliveryWebsite.Models
 
         [ForeignKey("UserId")]
         public int UserId { get; set; }
+
+        [BindNever]
+        [ValidateNever]
         public User User { get; set; }
 
         [Required]

@@ -1,0 +1,43 @@
+﻿@page
+@model FoodDeliveryWebsite.Pages.AddRestaurantModel
+@{
+	ViewData["Title"] = "Add New Restaurant";
+}
+
+<h1>Add New Restaurant</h1>
+
+<form method="post">
+	<div>
+		<label asp-for="Restaurant.Name"></label>
+		<input asp-for="Restaurant.Name" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.Category"></label>
+		<input asp-for="Restaurant.Category" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.Address"></label>
+		<input asp-for="Restaurant.Address" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.City"></label>
+		<input asp-for="Restaurant.City" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.Latitude"></label>
+		<input asp-for="Restaurant.Latitude" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.Longitude"></label>
+		<input asp-for="Restaurant.Longitude" class="form-control" />
+	</div>
+
+	<button type="submit">Add Restaurant</button>
+</form>
+
+<p class="text-success">@Model.Message</p>
