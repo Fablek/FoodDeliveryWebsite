@@ -37,6 +37,7 @@
                     <td>@restaurant.City</td>
                     <td>
                         <a asp-page="/EditRestaurant" asp-route-id="@restaurant.RestaurantId" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-page="/DeleteRestaurant" asp-route-id="@restaurant.RestaurantId" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
             }

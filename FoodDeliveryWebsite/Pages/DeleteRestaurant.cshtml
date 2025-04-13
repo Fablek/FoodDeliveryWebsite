@@ -1,0 +1,23 @@
+﻿@page "{id:int}"
+@model FoodDeliveryWebsite.Pages.DeleteRestaurantModel
+@{
+    ViewData["Title"] = "Delete Restaurant";
+}
+
+<h2>Delete Restaurant</h2>
+
+<div class="alert alert-warning">
+    <strong>Are you sure?</strong> This action cannot be undone.
+</div>
+
+<div class="mb-3">
+    <strong>Name:</strong> @Model.Restaurant.Name<br />
+    <strong>Category:</strong> @Model.Restaurant.Category<br />
+    <strong>Address:</strong> @Model.Restaurant.Address<br />
+    <strong>City:</strong> @Model.Restaurant.City
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+    <a asp-page="/OwnerPanel" class="btn btn-secondary">Cancel</a>
+</form>
