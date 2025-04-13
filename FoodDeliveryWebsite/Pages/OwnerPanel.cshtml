@@ -6,6 +6,44 @@
 
 <h1>👋 Welcome, @Model.OwnerName!</h1>
 
+@if (TempData["Message"] != null)
+{
+    <p class="alert alert-success">@TempData["Message"]</p>
+}
+
 <ul>
     <li><a href="/AddRestaurant">Add new restaurant</a></li>
 </ul>
+
+@if (Model.Restaurants.Any())
+{
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var restaurant in Model.Restaurants)
+            {
+                <tr>
+                    <td>@restaurant.Name</td>
+                    <td>@restaurant.Category</td>
+                    <td>@restaurant.Address</td>
+                    <td>@restaurant.City</td>
+                    <td>
+                        <a asp-page="/EditRestaurant" asp-route-id="@restaurant.RestaurantId" class="btn btn-sm btn-primary">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="mt-3">You don't have any restaurants yet. <a asp-page="/AddRestaurant">Add your first one!</a></p>
+}
