@@ -2,13 +2,14 @@ using FoodDeliveryWebsite.Data;
 using FoodDeliveryWebsite.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace FoodDeliveryWebsite.Pages
 {
     public class EditRestaurantModel : PageModel
     {
-        public readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public EditRestaurantModel(AppDbContext context)
         {
@@ -17,6 +18,12 @@ namespace FoodDeliveryWebsite.Pages
 
         [BindProperty]
         public Restaurant Restaurant { get; set; }
+
+        [BindProperty]
+        public IFormFile? LogoFile { get; set; }
+
+        [BindProperty]
+        public IFormFile? PhotoFile { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -66,6 +73,27 @@ namespace FoodDeliveryWebsite.Pages
             existing.City = Restaurant.City;
             existing.Latitude = Restaurant.Latitude;
             existing.Longitude = Restaurant.Longitude;
+
+            var uploadsFolder = Path.Combine("wwwroot", "uploads", "restaurants");
+            Directory.CreateDirectory(uploadsFolder);
+
+            if (LogoFile != null)
+            {
+                var logoFileName = $"logo_{Guid.NewGuid()}{Path.GetExtension(LogoFile.FileName)}";
+                var logoPath = Path.Combine(uploadsFolder, logoFileName);
+                using var stream = new FileStream(logoPath, FileMode.Create);
+                await LogoFile.CopyToAsync(stream);
+                existing.LogoPath = $"/uploads/restaurants/{logoFileName}";
+            }
+
+            if (PhotoFile != null)
+            {
+                var photoFileName = $"photo_{Guid.NewGuid()}{Path.GetExtension(PhotoFile.FileName)}";
+                var photoPath = Path.Combine(uploadsFolder, photoFileName);
+                using var stream = new FileStream(photoPath, FileMode.Create);
+                await PhotoFile.CopyToAsync(stream);
+                existing.PhotoPath = $"/uploads/restaurants/{photoFileName}";
+            }
 
             await _context.SaveChangesAsync();
 

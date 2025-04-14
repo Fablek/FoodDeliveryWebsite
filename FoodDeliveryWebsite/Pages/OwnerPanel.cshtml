@@ -24,6 +24,8 @@
                 <th>Category</th>
                 <th>Address</th>
                 <th>City</th>
+                <th>Logo</th>
+                <th>Photo</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -35,6 +37,18 @@
                     <td>@restaurant.Category</td>
                     <td>@restaurant.Address</td>
                     <td>@restaurant.City</td>
+                        @if (!string.IsNullOrEmpty(restaurant.LogoPath))
+                        {
+                        <td>
+                            <img src="@restaurant.LogoPath" style="height: 50px;" />
+                        </td>
+                        }
+                    @if (!string.IsNullOrEmpty(restaurant.PhotoPath))
+                    {
+                        <td>
+                            <img src="@restaurant.PhotoPath" style="height: 50px;" />
+                        </td>
+                    }
                     <td>
                         <a asp-page="/EditRestaurant" asp-route-id="@restaurant.RestaurantId" class="btn btn-sm btn-primary">Edit</a>
                         <a asp-page="/DeleteRestaurant" asp-route-id="@restaurant.RestaurantId" class="btn btn-sm btn-danger">Delete</a>

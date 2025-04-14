@@ -50,6 +50,24 @@ namespace FoodDeliveryWebsite.Pages
             if (restaurant == null)
                 return NotFound();
 
+            if (!string.IsNullOrEmpty(restaurant.LogoPath))
+            {
+                var logoFullPath = Path.Combine("wwwroot", restaurant.LogoPath.TrimStart('/'));
+                if (System.IO.File.Exists(logoFullPath))
+                {
+                    System.IO.File.Delete(logoFullPath);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(restaurant.PhotoPath))
+            {
+                var photoFullPath = Path.Combine("wwwroot", restaurant.PhotoPath.TrimStart('/'));
+                if (System.IO.File.Exists(photoFullPath))
+                {
+                    System.IO.File.Delete(photoFullPath);
+                }
+            }
+
             _context.Restaurants.Remove(restaurant);
             await _context.SaveChangesAsync();
 

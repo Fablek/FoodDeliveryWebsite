@@ -25,6 +25,9 @@ namespace FoodDeliveryWebsite.Models
         [StringLength(100)]
         public string Category { get; set; }
 
+        public string? LogoPath { get; set; }
+        public string? PhotoPath { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Address { get; set; }

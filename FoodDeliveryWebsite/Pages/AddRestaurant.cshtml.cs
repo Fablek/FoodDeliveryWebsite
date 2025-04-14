@@ -20,6 +20,12 @@ namespace FoodDeliveryWebsite.Pages
 
         public string Message { get; set; } = "";
 
+        [BindProperty]
+        public IFormFile? LogoFile { get; set; }
+
+        [BindProperty]
+        public IFormFile? PhotoFile { get; set; }
+
         public async Task<IActionResult> OnGetAsync()
         {
             if (!User.Identity?.IsAuthenticated ?? true)
@@ -49,6 +55,27 @@ namespace FoodDeliveryWebsite.Pages
             if (user == null || user.Role != UserRole.Owner)
             {
                 return Forbid();
+            }
+
+            var uploadsFolder = Path.Combine("wwwroot", "uploads", "restaurants");
+            Directory.CreateDirectory(uploadsFolder);
+
+            if (LogoFile != null)
+            {
+                var logoFileName = $"logo_{Guid.NewGuid()}{Path.GetExtension(LogoFile.FileName)}";
+                var logoPath = Path.Combine(uploadsFolder, logoFileName);
+                using var stream = new FileStream(logoPath, FileMode.Create);
+                await LogoFile.CopyToAsync(stream);
+                Restaurant.LogoPath = $"/uploads/restaurants/{logoFileName}";
+            }
+
+            if (PhotoFile != null)
+            {
+                var photoFileName = $"photo_{Guid.NewGuid()}{Path.GetExtension(PhotoFile.FileName)}";
+                var photoPath = Path.Combine(uploadsFolder, photoFileName);
+                using var stream = new FileStream(photoPath, FileMode.Create);
+                await PhotoFile.CopyToAsync(stream);
+                Restaurant.PhotoPath = $"/uploads/restaurants/{photoFileName}";
             }
 
             Restaurant.UserId = user.UserId;

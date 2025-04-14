@@ -6,7 +6,7 @@
 
 <h1>Add New Restaurant</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 	<div>
 		<label asp-for="Restaurant.Name"></label>
 		<input asp-for="Restaurant.Name" class="form-control" />
@@ -35,6 +35,16 @@
 	<div>
 		<label asp-for="Restaurant.Longitude"></label>
 		<input asp-for="Restaurant.Longitude" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.LogoPath">Logo</label>
+		<input type="file" name="LogoFile" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="Restaurant.PhotoPath">Main Photo</label>
+		<input type="file" name="PhotoFile" class="form-control" />
 	</div>
 
 	<button type="submit">Add Restaurant</button>
