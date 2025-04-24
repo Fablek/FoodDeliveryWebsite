@@ -1,0 +1,24 @@
+﻿@page "{id:int}"
+@model FoodDeliveryWebsite.Pages.DeleteProductModel
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h1>Are you sure you want to delete this product?</h1>
+
+<div>
+    <strong>@Model.Product.Name</strong><br />
+    <span>@Model.Product.Category</span><br />
+    <span>@Model.Product.Price.ToString("C")</span><br />
+
+    @if (!string.IsNullOrEmpty(Model.Product.ImageUrl))
+    {
+        <img src="@Model.Product.ImageUrl" alt="Product Image" style="max-height: 100px;" />
+    }
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Product.ProductId" />
+    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+    <a href="/EditRestaurant/@Model.Product.RestaurantId" class="btn btn-secondary mt-3">Cancel</a>
+</form>
