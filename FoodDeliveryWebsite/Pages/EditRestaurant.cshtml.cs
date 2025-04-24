@@ -10,6 +10,7 @@ namespace FoodDeliveryWebsite.Pages
     public class EditRestaurantModel : PageModel
     {
         private readonly AppDbContext _context;
+        public List<Product> Products { get; set; } = new();
 
         public EditRestaurantModel(AppDbContext context)
         {
@@ -41,6 +42,10 @@ namespace FoodDeliveryWebsite.Pages
             {
                 return NotFound();
             }
+
+            Products = await _context.Products
+                .Where(p => p.RestaurantId == Restaurant.RestaurantId)
+                .ToListAsync();
 
             return Page();
         }

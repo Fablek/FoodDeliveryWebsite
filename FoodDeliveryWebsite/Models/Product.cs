@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDeliveryWebsite.Models
@@ -9,6 +11,9 @@ namespace FoodDeliveryWebsite.Models
 
         [ForeignKey("RestaurantId")]
         public int RestaurantId { get; set; }
+
+        [BindNever]
+        [ValidateNever]
         public Restaurant Restaurant { get; set; }
 
         [Required]
@@ -25,6 +30,6 @@ namespace FoodDeliveryWebsite.Models
         public string Category { get; set; }
 
         [StringLength(255)]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }
