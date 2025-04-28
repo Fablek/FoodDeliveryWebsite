@@ -1,0 +1,47 @@
+﻿@page "{id:int}"
+@model FoodDeliveryWebsite.Pages.RestaurantModel
+@{
+    ViewData["Title"] = Model.Restaurant?.Name ?? "Restaurant";
+}
+
+@if (Model.Restaurant == null)
+{
+    <p>Restaurant not found.</p>
+}
+else
+{
+    <div class="mb-8">
+        @if (!string.IsNullOrEmpty(Model.Restaurant.PhotoPath))
+        {
+            <img src="@Model.Restaurant.PhotoPath" alt="@Model.Restaurant.Name" class="w-full h-64 object-cover rounded-lg mb-4" />
+        }
+        <h1 class="text-3xl font-bold mb-2">@Model.Restaurant.Name</h1>
+        <p class="text-gray-600">@Model.Restaurant.Category</p>
+        <p class="text-gray-500">@Model.Restaurant.Address, @Model.Restaurant.City</p>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">Menu</h2>
+
+    @if (Model.Products.Any())
+    {
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            @foreach (var product in Model.Products)
+            {
+                <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+                    @if (!string.IsNullOrEmpty(product.ImageUrl))
+                    {
+                        <img src="@product.ImageUrl" alt="@product.Name" class="w-full h-40 object-cover rounded-t-lg mb-4" />
+                    }
+                    <h3 class="text-xl font-semibold">@product.Name</h3>
+                    <p class="text-gray-600 mb-2">@product.Category</p>
+                    <p class="text-gray-700">@product.Description</p>
+                    <p class="text-green-600 font-bold mt-2">@product.Price.ToString("C")</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No menu items available for this restaurant yet.</p>
+    }
+}
