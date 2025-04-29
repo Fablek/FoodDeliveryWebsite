@@ -32,10 +32,17 @@ else
                     {
                         <img src="@product.ImageUrl" alt="@product.Name" class="w-full h-40 object-cover rounded-t-lg mb-4" />
                     }
+
                     <h3 class="text-xl font-semibold">@product.Name</h3>
                     <p class="text-gray-600 mb-2">@product.Category</p>
                     <p class="text-gray-700">@product.Description</p>
                     <p class="text-green-600 font-bold mt-2">@product.Price.ToString("C")</p>
+
+                    <form method="post" asp-page-handler="AddToCart">
+                        <input type="hidden" name="ProductId" value="@product.ProductId" />
+                        <input type="number" name="Quantity" value="1" min="1" class="w-16 mr-2 border rounded px-2 py-1" />
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700">Add to Cart</button>
+                    </form>
                 </div>
             }
         </div>
