@@ -15,7 +15,6 @@ namespace FoodDeliveryWebsite.Pages
         {
             Items = CartHelper.GetCart(HttpContext.Session);
         }
-
         public IActionResult OnPostRemove(int productId)
         {
             var cart = CartHelper.GetCart(HttpContext.Session);
